@@ -6,7 +6,7 @@
 #    By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 08:41:32 by qdegraev          #+#    #+#              #
-#    Updated: 2015/12/11 18:49:55 by qdegraev         ###   ########.fr        #
+#    Updated: 2015/12/11 18:57:11 by qdegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,16 @@ CFLAGS = -Wall -Wextra -Werror -I libft
 
 LDFLAGS = -L libft -lft
 
-SRC= 1record_check_file.c 2make_pieces.c ft_lstlen.c ft_small_square.c ft_taballoc.c main.c list.c
+SRC = \
+	0main.c \
+	1record_check_file.c \
+	2make_pieces.c \
+	ft_lstlen.c \
+	ft_small_square.c \
+	ft_taballoc.c \
+	list.c
+
+OBJ = $(SRC:.c=.o)
 
 all: $(LIB) $(NAME)
 
