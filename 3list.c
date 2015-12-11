@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 12:34:11 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/11 17:09:34 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/11 19:50:24 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	insert_pieces(t_list *lst)
 		if (!(lst->tab[i] = (char*)malloc(ft_strlen(split[i]) + 1)))
 			return ;
 		ft_memcpy(lst->tab[i], split[i], ft_strlen(split[i]));
+		//ft_putendl(lst->tab[i]);
 		i++;
 	}
 	lst->tab[i] = NULL;

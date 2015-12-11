@@ -6,7 +6,7 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:09:07 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/10 21:43:22 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/11 19:28:23 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	fill_board(char **map, char **piece, int n)
 {
 	int		i;
-	int		j;
+	size_t		j;
 
 	i = 0;
 	j = 0;

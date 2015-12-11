@@ -6,7 +6,7 @@
 #    By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 08:41:32 by qdegraev          #+#    #+#              #
-#    Updated: 2015/12/11 19:03:26 by qdegraev         ###   ########.fr        #
+#    Updated: 2015/12/11 19:29:01 by qdegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC = \
 	ft_lstlen.c \
 	ft_small_square.c \
 	ft_taballoc.c \
-	list.c
+	3list.c
 
 OBJ = $(SRC:.c=.o)
 

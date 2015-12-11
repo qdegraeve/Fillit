@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:45:19 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/11 17:04:19 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/11 19:55:44 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ t_list	*ft_recordfile(int fd)
 	char buf[22];
 	int ret;
 	int i;
-	int j;
 
-	j = 0;
 	i = 0;
 	lst = NULL;
 	while ((ret = read(fd, buf, 21)))
@@ -36,8 +34,8 @@ t_list	*ft_recordfile(int fd)
 		return (NULL);
 	if (check_file(lst) == 1)
 	{
-	tmp = lst;
-	while (tmp)
+		tmp = lst;
+		while (tmp)
 		{
 			insert_pieces(tmp);
 			tmp = tmp->next;
