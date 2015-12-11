@@ -6,24 +6,31 @@
 #    By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 08:41:32 by qdegraev          #+#    #+#              #
-#    Updated: 2015/12/07 10:44:35 by qdegraev         ###   ########.fr        #
+#    Updated: 2015/12/11 08:30:21 by qdegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 NAME= fillit
 
-SRC= *.c
+CC = gcc
 
-FLAGS= -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
-LIB= -L.. -lft
+SRC= 1record_check_file.c 2make_pieces.c ft_lstlen.c ft_small_square.c ft_taballoc.c main.c list.c
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -L. -lft -o $@ $<
+
+%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
+	rm -f $(OBJ)
 
 fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
