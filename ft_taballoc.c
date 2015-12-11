@@ -6,11 +6,11 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:09:07 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/11 19:28:23 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/11 22:42:18 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 #include <stdlib.h>
 
 void	fill_board(char **map, char **piece, int n)
@@ -20,28 +20,25 @@ void	fill_board(char **map, char **piece, int n)
 
 	i = 0;
 	j = 0;
-	while (i < n)
+	while (piece[i])
 	{
-		j = 0;
-		while (j < ft_strlen(piece[i]))
+		if (piece[i][j] == map[i][j])
+			j++;
+		ft_putnbr(ft_strlen(piece[i]));//TEST
+		ft_putchar('\n');//TEST
+		if (piece[i][j] != map[i][j] && j < ft_strlen(piece[i]))
 		{
-			ft_putnbr(ft_strlen(piece[i]));
-			ft_putchar('\n');
-			if (piece[i][j] != map[i][j])
-			{
-				ft_putstr("if piece[i][j] = map[i][j]\n");
-				ft_putchar(piece[i][j]);
-				ft_putchar('\n');
-				map[i][j] = piece[i][j];
-				j++;
-			}
-			else
-			{
-				ft_putstr("else\n");
-				j++;
-			}
+			ft_putstr("if piece[i][j] = map[i][j]\n");
+			ft_putchar(piece[i][j]);//TEST
+			ft_putchar('\n');//TEST
+			map[i][j] = piece[i][j];
+			j++;
 		}
-		i++;
+		if (piece[i][j] == '\0')
+		{
+			i++;
+			j = 0;
+		}
 	}
 	i = 0;
 	while (i < n)
@@ -72,25 +69,21 @@ char	**ft_taballoc(int n)
 	return (new);
 }
 
-/*int		main(int ac, char **av)
+int		main(int ac, char **av)
 {
-	char	carre[2][4] = {"##\n","##\n"};
-	char	z[2][5] = {"##.\n",".##\n"};
 	char	**tab;
 	char	**piece;
 
-	piece = (char**)malloc(2 * sizeof(char*));
-	piece[1] = (char*)malloc(5 * sizeof(char));
-	piece[2] = (char*)malloc(5 * sizeof(char));
+	piece = (char**)malloc(3 * sizeof(char*));
+	piece[0] = (char*)malloc(4 * sizeof(char));
+	piece[1] = (char*)malloc(4 * sizeof(char));
+	piece[2] = (char*)malloc(sizeof(char));
 	piece[0] = "##.\0";
 	piece[1] = ".##\0";
+	piece[2] = NULL;
+	ft_putstr(piece[0]);
 	ft_putstr(piece[1]);
-	ft_putstr(piece[2]);
-	ft_putstr(carre[0]);
-	ft_putstr(carre[1]);
-	ft_putstr(z[0]);
-	ft_putstr(z[1]);
 	tab = ft_taballoc(5);
 	fill_board(tab, piece, 5);
 	return(0);
-}*/
+}
