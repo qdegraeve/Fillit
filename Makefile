@@ -6,7 +6,7 @@
 #    By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 08:41:32 by qdegraev          #+#    #+#              #
-#    Updated: 2015/12/11 18:57:11 by qdegraev         ###   ########.fr        #
+#    Updated: 2015/12/11 19:03:26 by qdegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,6 @@ all: $(LIB) $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(LDFLAGS) -o $@ $^
-
-%.o: %.c fillit.h
-	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(LIB):
 	make -C $(LIBPATH)

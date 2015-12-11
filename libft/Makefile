@@ -6,12 +6,13 @@
 #    By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #   .oreated: 2015/11/27 07:44:51 by qdegraev          #+#    #+#              #
-#    Updated: 2015/12/07 11:06:49 by qdegraev         ###   ########.fr        #
+#    Updated: 2015/12/11 19:02:50 by qdegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
-FLAGS=-Wall -Wextra -Werror
+CC=clang
+CFLAGS=-Wall -Wextra -Werror
 HEADER=libft.h
 SRC =  ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	   ft_isdigit.c ft_isprint.c ft_itoa.c ft_memalloc.c ft_memccpy.c \
@@ -26,25 +27,11 @@ SRC =  ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	   ft_toupper.c ft_lstnew.c ft_lstadd.c ft_lstdel.c ft_lstdelone.c \
 	   ft_lstiter.c ft_lstmap.c ft_lstnew.c ft_lstaddback.c
 
-
-OBJ =  ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
-	   ft_isdigit.o ft_isprint.o ft_itoa.o ft_memalloc.o ft_memccpy.o \
-	   ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memdel.o ft_memmove.o \
-	   ft_memset.o ft_putchar.o ft_putchar_fd.o ft_putendl.o ft_putendl_fd.o \
-	   ft_putnbr.o ft_putnbr_fd.o ft_putstr.o ft_putstr_fd.o ft_strcat.o \
-	   ft_strchr.o ft_strclr.o ft_strcmp.o ft_strcpy.o ft_strdel.o ft_strdup.o \
-	   ft_strequ.o ft_striter.o ft_striteri.o ft_strjoin.o ft_strlcat.o \
-	   ft_strlen.o ft_strmap.o ft_strmapi.o ft_strncat.o ft_strncmp.o \
-	   ft_strncpy.o ft_strnequ.o ft_strnew.o ft_strnstr.o ft_strrchr.o \
-	   ft_strsplit.o ft_strstr.o ft_strsub.o ft_strtrim.o ft_tolower.o \
-	   ft_toupper.o ft_lstnew.o ft_lstadd.o ft_lstdel.o ft_lstdelone.o \
-	   ft_lstiter.o ft_lstmap.o ft_lstnew.o ft_lstaddback.o
-
+OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(SRC)
-	gcc $(FLAGS) -c $(SRC)
+$(NAME) : $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
