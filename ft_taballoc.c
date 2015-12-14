@@ -6,14 +6,15 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:09:07 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/11 22:42:18 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/14 15:54:18 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "fillit.h"
 #include <stdlib.h>
 
-void	fill_board(char **map, char **piece, int n)
+/*void	fill_board(char **map, char **piece, int n)
 {
 	int		i;
 	size_t		j;
@@ -47,7 +48,7 @@ void	fill_board(char **map, char **piece, int n)
 		i++;
 	}
 	return ;
-}
+}*/
 
 char	**ft_taballoc(int n)
 {
@@ -68,7 +69,7 @@ char	**ft_taballoc(int n)
 	ft_putstr("Verif 2\n");
 	return (new);
 }
-
+/*
 int		main(int ac, char **av)
 {
 	char	**tab;
@@ -86,4 +87,4 @@ int		main(int ac, char **av)
 	tab = ft_taballoc(5);
 	fill_board(tab, piece, 5);
 	return(0);
-}
+}*/

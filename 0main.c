@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:53:28 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/11 19:35:15 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/14 16:01:19 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,11 @@ void ft_printlist(t_list *lst)
 
 int main(int argc, char **argv)
 {
-	int fd;
+	int		fd;
 	t_list *lst;
+	int		len;
+	int		n;
+	char	**map;
 
 	if (argc != 2)
 		return (0);
@@ -49,4 +52,8 @@ int main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	lst = ft_recordfile(fd);
 	ft_printlist(lst);
+	len = ft_lstlen(lst);
+	n = ft_small_square(len);
+	map = ft_taballoc(n);
+	ft_fill_board(map, lst, n);
 }

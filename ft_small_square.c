@@ -6,11 +6,11 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:57:24 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/10 21:43:32 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/14 15:25:00 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 #include "fillit.h"
 
 int		ft_small_square(int i)
