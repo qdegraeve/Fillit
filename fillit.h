@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 09:43:52 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/14 15:52:50 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:37:34 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ char	*cut_empty_col(char *s);
 char	*src_emptycol(char *s);
 void	insert_pieces(t_list *lst);
 int		ft_lstlen(t_list *lst);
-void	ft_fill_board(char **map, t_list *lst, int n);
+void	ft_fill_board(char **map, char **tab, int x, int y);
 int		ft_small_square(int i);
 char	**ft_taballoc(int n);
+int		check_board(char **map, char **tab, int x, int y);
+void	ft_niketamerelapute(char **map, t_list *lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:09:07 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/14 15:54:18 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:43:10 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ char	**ft_taballoc(int n)
 		ft_putendl(new[i]); //TEST
 		i++;
 	}
+	new[i] = NULL;
 	ft_putstr("Verif 2\n");
 	return (new);
 }

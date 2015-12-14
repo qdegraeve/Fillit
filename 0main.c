@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:53:28 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/14 16:01:19 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/14 19:30:48 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int main(int argc, char **argv)
 	int		len;
 	int		n;
 	char	**map;
+	int		i;
 
 	if (argc != 2)
 		return (0);
@@ -54,6 +55,12 @@ int main(int argc, char **argv)
 	ft_printlist(lst);
 	len = ft_lstlen(lst);
 	n = ft_small_square(len);
-	map = ft_taballoc(n);
-	ft_fill_board(map, lst, n);
+	map = ft_taballoc(15);
+	ft_niketamerelapute(map, lst);
+	i = 0;
+	while (i < n)
+	{
+		ft_putendl(map[i]);
+		i++;
+	}
 }
