@@ -6,7 +6,7 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:57:24 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/14 15:25:00 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/14 17:29:01 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int		ft_small_square(int i)
 	n = 2;
 	while (i * 4 > n * n)
 		n++;
-	ft_putnbr(n); //TEST
 	return (n);
 }
