@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 13:39:32 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/15 12:24:33 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/15 19:47:15 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ char			**ft_strsplit(char const *s, char c)
 	if (!s)
 		return (NULL);
 	c_words = count_words(s, c);
-	new = ft_memalloc(c_words + 1);
+	if(!(new = ft_memalloc(c_words + 1)))
+		return (NULL);
 	while (s[sl] && i < c_words)
 	{
 		while (s[sl] == c)

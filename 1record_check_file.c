@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:45:19 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/15 12:04:12 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/15 19:26:06 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ t_list	*ft_recordfile(int fd)
 		return (NULL);
 	if (check_file(lst) == 1)
 	{
-		tmp = lst;
+	tmp = lst;
 		while (tmp)
 		{
+			ft_putendl("pipi");
 			insert_pieces(tmp);
 			tmp = tmp->next;
 		}
@@ -59,7 +60,7 @@ int		check_piece(char *piece)
 	{
 		if (piece[i] == '#')
 		{
-			if (piece[i - 1] == '#') 
+			if (piece[i - 1] == '#')
 				part++;
 			if (piece[i + 1] == '#')
 				part++;

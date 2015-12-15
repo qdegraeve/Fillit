@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 12:34:11 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/15 12:22:34 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/15 19:53:15 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ t_list	*list_new(void const *content, size_t content_size, char letter)
 		new->content = NULL;
 		new->content_size = 0;
 		new->letter = 0;
+		new->tab = NULL;
 	}
 	else
 	{
-		if (!(new->content = malloc(content_size)))
+		if (!(new->content = ft_strnew(content_size)))
 			return (NULL);
 		ft_memcpy(new->content, content, content_size);
 		new->content_size = content_size;
 		new->letter = letter;
+		new->tab = NULL;
 	}
-	new->tab = NULL;
 	new->next = NULL;
 	return (new);
 }
@@ -55,25 +56,69 @@ void	list_addback(t_list **begin_list, void const *content, size_t content_size,
 	}
 }
 
+void	del_lstcontent(char **tab, char *s, int size, char letter)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (tab[i])
+		i++;
+	while (j <= i)
+	{
+		free(tab[j]);
+		j++;
+	}
+	free(tab);
+	free(s);
+	tab = NULL;
+	s = NULL;
+	size = '\0';
+	letter = '\0';
+}
+
+void	list_erase(t_list **lst)
+{
+	t_list *tmp;
+
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		del_lstcontent((*lst)->tab, (*lst)->content, (*lst)->content_size, (*lst)->letter);
+		free(*lst);
+		*lst = tmp;
+	}
+	*lst = NULL;
+}
+
 void	insert_pieces(t_list *lst)
 {
 	int i;
+	int j;
 	char **split;
 
-	split = ft_strsplit(cut_empty_lin(lst->content), '\n');
+	j = 0;
 	i = 0;
-	while (split[i])
-		i++;
-	if (!(lst->tab = (char**)malloc(sizeof(char*) * i + 1)))
+	ft_putendl("caca");
+	if (!(split = ft_strsplit(cut_empty_lin(lst->content), '\n')))
 		return ;
-	i = 0;
 	while (split[i])
-	{
-		if (!(lst->tab[i] = (char*)malloc(ft_strlen(split[i]) + 1)))
-			return ;
-		ft_memcpy(lst->tab[i], split[i], ft_strlen(split[i]));
-		//ft_putendl(lst->tab[i]);
 		i++;
+	if (!(lst->tab = (char**)malloc(sizeof(lst->tab) * i + 1)))
+		return ;
+	while (split[j])
+	{
+		if (!(lst->tab[j] = (ft_strnew(ft_strlen(split[j])))))
+			return ;
+		ft_memcpy(lst->tab[j], split[j], ft_strlen(split[j]));
+		j++;
 	}
-	lst->tab[i] = NULL;
-}
+	lst->tab[j] = NULL;
+/*	while (j < i)
+	{
+		free(split[j]);
+		j++;
+	}
+	free(split);
+*/}

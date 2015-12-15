@@ -6,7 +6,7 @@
 /*   By: afillion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:09:32 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/15 15:51:14 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/15 19:57:56 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	ft_fill_board(char **map, char **tab, int x, int y)
 	{
 		while (tab[i][j])
 		{
-			map[x + i][y + j] = tab[i][j];
+			if (tab[i][j] == '#')
+				map[x + i][y + j] = tab[i][j];
 			j++;
 		}
 		i++;
@@ -81,7 +82,7 @@ int		check_board(char **map, char **tab, int x, int y)
 			}
 */			if (map[x + i][y + j] == '.' && tab[i][j] == '#')
 				j++;
-			else if (map[x + i][y + j] == '.' && tab[i][j] == '.')
+			else if (tab[i][j] == '.')
 				j++;
 			else
 				return (0);

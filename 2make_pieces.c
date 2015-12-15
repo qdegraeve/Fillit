@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:30:53 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/11 11:03:00 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/15 18:52:34 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*cut_empty_lin(char *s)
 	int i;
 	char *s2;
 
-	s2 = "....";
+	s2 = "....\n\0";
 	i = 0;
 	while (s[i])
 	{
-		if (ft_strnequ(s + i, s2, 3) == 1)
+		if (ft_strnequ(s + i, s2, 4) == 1)
 			str_replace(s + i, "\n\n\n\n");
 		i++;
 	}
@@ -73,7 +73,7 @@ char	*cut_empty_col(char *s)
 	return (s);
 }
 
-char	*str_replace(char *dest, const char *src)
+void	str_replace(char *dest, const char *src)
 {
 	int i;
 
@@ -83,10 +83,9 @@ char	*str_replace(char *dest, const char *src)
 		dest[i] = src[i];
 		i++;
 	}
-	return (dest);
 }
 
-char	*str_replace_col(char *dest, const char *src)
+void	str_replace_col(char *dest, const char *src)
 {
 	int i;
 	int j;
@@ -99,5 +98,4 @@ char	*str_replace_col(char *dest, const char *src)
 		i++;
 		j += 5;
 	}
-	return (dest);
 }

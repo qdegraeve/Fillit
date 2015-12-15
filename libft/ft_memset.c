@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 10:46:48 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/02 18:45:27 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/15 19:44:03 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void	*ft_memset(void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		((char*)s)[i] = (char)c;
+		((char*)s)[i] = c;
 		i++;
 	}
+	((char*)s)[i] = '\0';
 	return (s);
 }
