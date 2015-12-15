@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:45:19 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/11 19:55:44 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/15 12:04:12 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	*ft_recordfile(int fd)
 	{
 		buf[ret] = '\0';
 		ft_putstr(buf);
-		list_addback(&lst, buf, 22, 'A' + i);
+		list_addback(&lst, buf, 21, 'A' + i);
 		i++;
 	}
 	ft_putendl("lecture terminee");
@@ -99,7 +99,7 @@ int		check_box(char *s)
 			n++;
 		i++;
 	}
-	if (linefeed == 5 && s[i] == '\n')
+	if (linefeed == 5 && (s[i] == '\n' || s[i] == '\0'))
 	{
 		ft_putendl("boite conforme");
 		return (1);
