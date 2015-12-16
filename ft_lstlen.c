@@ -6,7 +6,7 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:50:50 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/14 17:28:49 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/16 08:39:02 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,19 @@ int		ft_lstlen(t_list *lst)
 		i++;
 	}
 	return (i);
+}
+
+char	*hash_vs_letter(char *s, char hash, char letter)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == hash)
+			s[i] = letter;
+		else
+			i++;
+	}
+	return (s);
 }

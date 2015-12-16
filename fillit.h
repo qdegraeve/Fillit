@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 09:43:52 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/15 18:52:19 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 08:39:39 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int		check_board(char **map, char **tab, int x, int y);
 void	ft_niketamerelapute(char **map, t_list *lst);
 void	list_erase(t_list **lst);
 void	del_lstcontent(char **tab, char *s, int size, char letter);
+char	*hash_vs_letter(char *s, char hash, char letter);
 
 #endif

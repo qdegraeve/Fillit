@@ -6,7 +6,7 @@
 /*   By: afillion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:09:32 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/15 19:57:56 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 08:44:30 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,17 @@ void	ft_fill_board(char **map, char **tab, int x, int y)
 
 	i = 0;
 	j = 0;
-	ft_putendl("fill board");//TEST
 	while (tab[i])
 	{
 		while (tab[i][j])
 		{
-			if (tab[i][j] == '#')
+			if (ft_isalpha(tab[i][j]) == 1)
 				map[x + i][y + j] = tab[i][j];
 			j++;
 		}
 		i++;
 		j = 0;
 	}
-	ft_putendl("fill board fin");//TEST
 	return ;
 }
 
@@ -69,7 +67,6 @@ int		check_board(char **map, char **tab, int x, int y)
 
 	i = 0;
 	j = 0;
-	ft_putendl("check board entree");//TEST
 	while (tab[i])
 	{
 		j = 0;
@@ -80,7 +77,7 @@ int		check_board(char **map, char **tab, int x, int y)
 				ft_putendl("deuxieme if");
 				j++;
 			}
-*/			if (map[x + i][y + j] == '.' && tab[i][j] == '#')
+*/			if (map[x + i][y + j] == '.' && ft_isalpha(tab[i][j]) == 1)
 				j++;
 			else if (tab[i][j] == '.')
 				j++;
@@ -89,6 +86,5 @@ int		check_board(char **map, char **tab, int x, int y)
 		}
 		i++;
 	}
-	ft_putendl("check board fin");//TEST
 	return (1);
 }
