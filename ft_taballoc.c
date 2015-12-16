@@ -6,7 +6,7 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:09:07 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/15 16:54:29 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 10:57:35 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,21 @@
 
 char	**ft_taballoc(int n)
 {
-	ft_putstr("Verif 1\n"); //TEST
 	char	**new;
 	int		i;
 
 	i = 0;
-	if (!(new = (char**)malloc(n * sizeof(char*))))
+	if (!(new = (char**)malloc((n + 1) * sizeof(char*))))
 		return (NULL);
 	while (i < n)
 	{
-		new[i] = (char*)malloc(n * sizeof(char));
-		ft_memset(new[i], '.',n);
+		new[i] = (char*)malloc((n + 1)* sizeof(char));
+		ft_memset(new[i], '.', n);
 		ft_putendl(new[i]); //TEST
 		new[i][n] = '\0';
 		i++;
 	}
 	new[i] = NULL;
-	ft_putstr("Verif 2\n");
 	return (new);
 }
 /*

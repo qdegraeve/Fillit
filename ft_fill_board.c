@@ -6,7 +6,7 @@
 /*   By: afillion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:09:32 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/16 08:44:30 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 12:00:30 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_fill_board(char **map, char **tab, int x, int y)
 	{
 		while (tab[i][j])
 		{
-			if (ft_isalpha(tab[i][j]) == 1)
+			if (ft_isalpha(tab[i][j]))
 				map[x + i][y + j] = tab[i][j];
 			j++;
 		}
@@ -46,7 +46,7 @@ void	ft_niketamerelapute(char **map, t_list *lst)
 		j = 0;
 		while (map[i][j] && lst)
 		{
-			if (check_board(map, lst->tab, i, j) == 1)
+			if (check_board(map, lst->tab, i, j))
 			{
 				ft_putendl("check board = 1");//TEST
 				ft_fill_board(map, lst->tab, i, j);
@@ -58,6 +58,7 @@ void	ft_niketamerelapute(char **map, t_list *lst)
 		}
 		i++;
 	}
+
 }
 
 int		check_board(char **map, char **tab, int x, int y)
@@ -70,14 +71,11 @@ int		check_board(char **map, char **tab, int x, int y)
 	while (tab[i])
 	{
 		j = 0;
+		if (!(map[x + i]) || ft_strlen(map[x + i] + y) < ft_strlen(tab[i]))
+			return (0);
 		while (tab[i][j])
 		{
-/*			if (map[x + i][y + j] == '#' && tab[i][j] == '.')
-			{
-				ft_putendl("deuxieme if");
-				j++;
-			}
-*/			if (map[x + i][y + j] == '.' && ft_isalpha(tab[i][j]) == 1)
+			if (map[x + i][y + j] == '.' && ft_isalpha(tab[i][j]))
 				j++;
 			else if (tab[i][j] == '.')
 				j++;

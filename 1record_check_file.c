@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:45:19 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/15 20:23:58 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 09:35:10 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ t_list	*ft_recordfile(int fd)
 {
 	t_list *lst;
 	t_list *tmp;
-	char buf[22];
+	char *buf;
 	int ret;
 	int i;
 
+	buf = (char*)malloc(22);
 	i = 0;
 	lst = NULL;
 	while ((ret = read(fd, buf, 21)))
@@ -30,6 +31,8 @@ t_list	*ft_recordfile(int fd)
 		i++;
 	}
 	ft_putendl("lecture terminee");
+	close(fd);
+	free(buf);
 	if (i > 26)
 		return (NULL);
 	if (check_file(lst) == 1)
@@ -37,7 +40,6 @@ t_list	*ft_recordfile(int fd)
 	tmp = lst;
 		while (tmp)
 		{
-			ft_putendl("pipi");
 			insert_pieces(tmp);
 			tmp = tmp->next;
 		}

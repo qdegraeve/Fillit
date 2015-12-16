@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 12:34:11 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/16 08:40:43 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 09:34:22 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void	insert_pieces(t_list *lst)
 
 	j = 0;
 	i = 0;
-	ft_putendl("caca");
 	if (!(split = ft_strsplit(cut_empty_lin(lst->content), '\n')))
 		return ;
 	while (split[i])
@@ -116,10 +115,4 @@ void	insert_pieces(t_list *lst)
 		j++;
 	}
 	lst->tab[j] = NULL;
-/*	while (j < i)
-	{
-		free(split[j]);
-		j++;
-	}
-	free(split);
-*/}
+}
