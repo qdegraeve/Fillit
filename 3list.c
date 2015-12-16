@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 12:34:11 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/16 09:34:22 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 14:10:40 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*list_new(void const *content, size_t content_size, char letter)
 {
 	t_list *new;
 
-	if (!(new = (t_list*)malloc(sizeof(new))))
+	if (!(new = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
 	if (!content)
 	{
@@ -27,7 +27,7 @@ t_list	*list_new(void const *content, size_t content_size, char letter)
 	}
 	else
 	{
-		if (!(new->content = ft_strnew(content_size)))
+		if (!(new->content = malloc(content_size + 1)))
 			return (NULL);
 		ft_memcpy(new->content, content, content_size);
 		new->content_size = content_size;
@@ -40,10 +40,10 @@ t_list	*list_new(void const *content, size_t content_size, char letter)
 
 void	list_addback(t_list **begin_list, void const *content, size_t content_size, char letter)
 {
-	t_list*new;
-	t_list*tmp;
+	t_list	*new;
+	t_list	*tmp;
 
-	if (!(new = ft_lstnew(content, content_size, letter)))
+	if (!(new = list_new(content, content_size, letter)))
 		return ;
 	if (!(*begin_list))
 		*begin_list = new;

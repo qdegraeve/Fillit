@@ -6,11 +6,10 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 15:50:50 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/16 08:39:02 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 14:36:46 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "fillit.h"
 
 int		ft_lstlen(t_list *lst)

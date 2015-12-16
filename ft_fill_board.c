@@ -6,11 +6,10 @@
 /*   By: afillion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:09:32 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/16 12:00:30 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 14:36:36 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "fillit.h"
 
 void	ft_fill_board(char **map, char **tab, int x, int y)

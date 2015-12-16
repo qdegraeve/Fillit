@@ -6,13 +6,11 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:09:07 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/16 10:57:35 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 14:37:10 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "fillit.h"
-#include <stdlib.h>
 
 char	**ft_taballoc(int n)
 {

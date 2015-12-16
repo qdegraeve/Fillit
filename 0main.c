@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:53:28 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/16 12:01:33 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/16 14:21:01 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ int main(int argc, char **argv)
 	ft_printlist(lst);
 	len = ft_lstlen(lst);
 	n = ft_small_square(len);
-	map = ft_taballoc(5);
+	map = ft_taballoc(n);
 	ft_niketamerelapute(map, lst);
 	list_erase(&lst);
 	i = 0;
-	while (i < 5)
+	while (i < n)
 	{
 		ft_putendl(map[i]);
 		i++;
