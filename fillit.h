@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 09:43:52 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/16 14:52:24 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/16 18:31:55 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@
 #include <sys/uio.h>
 #include <unistd.h>
 
+typedef struct	s_memory
+{
+	int			i;
+	int			j;
+}				t_memory;
 
 t_list	*ft_recordfile(int fd);
 int		check_box(char *s);
@@ -46,9 +51,11 @@ void	ft_fill_board(char **map, char **tab, int x, int y);
 int		ft_small_square(int i);
 char	**ft_taballoc(int n);
 int		check_board(char **map, char **tab, int x, int y);
-void	ft_niketamerelapute(char **map, t_list *lst);
+t_memory	ft_niketamerelapute(char **map, char **tab);
 void	list_erase(t_list **lst);
 void	del_lstcontent(char **tab, char *s, int size, char letter);
 char	*hash_vs_letter(char *s, char hash, char letter);
+char	**backtrack_map(t_list *lst);
+t_memory	mem_init(int i, int j);
 
 #endif

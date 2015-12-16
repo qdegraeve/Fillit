@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 12:34:11 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/16 14:10:40 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/16 15:26:24 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,9 @@ void	insert_pieces(t_list *lst)
 			return ;
 		ft_memcpy(lst->tab[j], split[j], ft_strlen(split[j]));
 		hash_vs_letter(lst->tab[j], '#', lst->letter);
+		free(split[j]);
 		j++;
 	}
+	free(split);
 	lst->tab[j] = NULL;
 }

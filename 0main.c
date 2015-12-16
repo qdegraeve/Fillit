@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:53:28 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/16 14:21:01 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/16 18:20:22 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int main(int argc, char **argv)
 {
 	int		fd;
 	t_list *lst;
-	int		len;
-	int		n;
 	char	**map;
 	int		i;
 
@@ -54,13 +52,10 @@ int main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	lst = ft_recordfile(fd);
 	ft_printlist(lst);
-	len = ft_lstlen(lst);
-	n = ft_small_square(len);
-	map = ft_taballoc(n);
-	ft_niketamerelapute(map, lst);
+	map = backtrack_map(lst);
 	list_erase(&lst);
 	i = 0;
-	while (i < n)
+	while (i < 9)
 	{
 		ft_putendl(map[i]);
 		i++;
