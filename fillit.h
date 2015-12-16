@@ -6,14 +6,14 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 09:43:52 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/16 14:40:04 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/16 14:52:24 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-#include "../libft/libft.h"
+#include "libft/libft.h"
 // size_t
 #include <string.h>
 // open
