@@ -6,7 +6,7 @@
 /*   By: afillion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:09:32 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/16 18:34:14 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/17 14:34:33 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,68 +33,85 @@ void	ft_fill_board(char **map, char **tab, int x, int y)
 	return ;
 }
 
-t_memory	mem_init(int i, int j)
+char	**map_expand(t_list *lst, int n)
 {
-	t_memory	new;
-
-	ft_putendl("check board = 2");//TEST
-	new.i = i;
-	new.j = j;
-			ft_putnbr(new.i);
-			ft_putchar('\n');
-			ft_putnbr(new.j);
-			ft_putchar('\n');
-			return (new);
-}
-
-char	**backtrack_map(t_list *lst)
-{
-	char	**map;
-	t_memory	mem;
-	int		len;
-	int		n;
-
-	len = ft_lstlen(lst);
-	n = ft_small_square(len);
-	map = ft_taballoc(9);
-	while (lst)
+	char **map;
+	
+	map = ft_taballoc(n);
+	if (backtrack_map2(lst, map) == 1)
+		return (map);
+	if (backtrack_map2(lst, map) == 0)
 	{
-		mem = ft_niketamerelapute(map, lst->tab);
-		if (mem.i >= 0 && mem.j >= 0)
-		{
-			ft_putendl("check board = 1");//TEST
-			ft_fill_board(map, lst->tab, mem.i, mem.j);
-			lst = lst->next;
-		}
-		else 
-			return (map);
+		n++;
+		return (map_expand(lst, n));
 	}
-	return (map);
+	return (NULL);
 }
 
-t_memory	ft_niketamerelapute(char **map, char **tab)
+int		backtrack_map2(t_list *lst, char **map)
 {
 	int i;
 	int j;
+	
+	if (!lst)
+		return (1);
+	i = 0;
+	j = 0;
+	while (ft_niketamerelapute(map, lst->tab, &i, &j))
+	{
+		ft_fill_board(map, lst->tab, i, j);
+		if (backtrack_map2(lst->next, map))
+		{
+			return (1);
+		}
+		else
+		{
+			erase_piece(map, lst->tab, i, j);
+			j++;
+		}
+	}
+	return (0);
+}
+
+void	erase_piece(char **map, char **tab, int x, int y)
+{
+	int		i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
-	while (map[i])
+	while (tab[i])
 	{
-		while (map[i][j])
+		while (tab[i][j])
 		{
-			if (check_board(map, tab, i, j))
-			{
-				ft_putendl("check board = 1");//TEST
-				return (mem_init(i, j));
-			}
-			else
-				j++;
+			if (ft_isalpha(tab[i][j]))
+				map[x + i][y + j] = '.';
+			j++;
 		}
 		i++;
 		j = 0;
 	}
-	return (mem_init(-1, -1));
+	return ;
+}
+
+
+int	ft_niketamerelapute(char **map, char **tab, int *i, int *j)
+{
+	while (map[*i])
+	{
+		while (map[*i][*j])
+		{
+			if (check_board(map, tab, *i, *j))
+			{
+				return (1);
+			}
+			else
+				(*j)++;
+		}
+		(*i)++;
+		*j = 0;
+	}
+	return (0);
 }
 
 int		check_board(char **map, char **tab, int x, int y)

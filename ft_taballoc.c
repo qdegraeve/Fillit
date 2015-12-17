@@ -6,7 +6,7 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:09:07 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/16 14:37:10 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/17 14:35:07 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ char	**ft_taballoc(int n)
 	{
 		new[i] = (char*)malloc((n + 1)* sizeof(char));
 		ft_memset(new[i], '.', n);
-		ft_putendl(new[i]); //TEST
 		new[i][n] = '\0';
 		i++;
 	}

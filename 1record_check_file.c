@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:45:19 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/16 14:04:55 by afillion         ###   ########.fr       */
+/*   Updated: 2015/12/17 15:04:19 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ t_list	*ft_recordfile(int fd)
 	while ((ret = read(fd, buf, 21)))
 	{
 		buf[ret] = '\0';
-		ft_putstr(buf);
 		list_addback(&lst, buf, 21, 'A' + i);
 		i++;
 	}
-	ft_putendl("lecture terminee");
 	close(fd);
 	free(buf);
 	if (i > 26)
@@ -75,10 +73,7 @@ int		check_piece(char *piece)
 		i++;
 	}
 	if ((part == 6 || part == 8) && n == 4)
-	{
-		ft_putendl("tetriminos conformes");
 		return (1);
-	}
 	return (0);
 }
 
@@ -103,10 +98,7 @@ int		check_box(char *s)
 		i++;
 	}
 	if (linefeed == 5 && (s[i] == '\n' || s[i] == '\0'))
-	{
-		ft_putendl("boite conforme");
 		return (1);
-	}
 	else
 		return (0);
 }
@@ -120,17 +112,11 @@ int		check_file(t_list *lst)
 	i = 1;
 	while (tmp)
 	{
-			ft_putstr("boucle ");
-			ft_putnbr(i);
-			ft_putchar('\n');
 			i++;
 		if (check_box(tmp->content) == 1 && check_piece(tmp->content) == 1)
 			tmp = tmp->next;
 		else
-		{
-			ft_putendl("erreur fichier incorrect");
 			return (0);
-		}
 	}
 	return (1);
 }
