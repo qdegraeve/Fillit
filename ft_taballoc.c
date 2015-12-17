@@ -6,7 +6,7 @@
 /*   By: afillion <afillion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 16:09:07 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/17 14:35:07 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/17 17:00:11 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**ft_taballoc(int n)
 		return (NULL);
 	while (i < n)
 	{
-		new[i] = (char*)malloc((n + 1)* sizeof(char));
+		new[i] = (char*)malloc((n + 1) * sizeof(char));
 		ft_memset(new[i], '.', n);
 		new[i][n] = '\0';
 		i++;
@@ -30,22 +30,3 @@ char	**ft_taballoc(int n)
 	new[i] = NULL;
 	return (new);
 }
-/*
-int		main(int ac, char **av)
-{
-	char	**tab;
-	char	**piece;
-
-	piece = (char**)malloc(3 * sizeof(char*));
-	piece[0] = (char*)malloc(4 * sizeof(char));
-	piece[1] = (char*)malloc(4 * sizeof(char));
-	piece[2] = (char*)malloc(sizeof(char));
-	piece[0] = "##.\0";
-	piece[1] = ".##\0";
-	piece[2] = NULL;
-	ft_putstr(piece[0]);
-	ft_putstr(piece[1]);
-	tab = ft_taballoc(5);
-	fill_board(tab, piece, 5);
-	return(0);
-}*/
