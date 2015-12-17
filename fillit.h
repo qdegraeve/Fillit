@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 09:43:52 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/17 16:04:25 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/17 17:24:01 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int			backtrack_map2(t_list *lst, char **map);
 char		**map_expand(t_list *lst, int *n);
 void		erase_piece(char **map, char **tab, int x, int y);
 int			ft_errorbox();
+void		add_pieces_in_list(t_list *lst);
 
 #endif

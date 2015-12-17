@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_file.c                                     :+:      :+:    :+:   */
+/*   record_check_file.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/08 17:45:19 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/17 16:05:36 by qdegraev         ###   ########.fr       */
+/*   Created: 2015/12/17 17:24:48 by qdegraev          #+#    #+#             */
+/*   Updated: 2015/12/17 17:24:54 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,42 @@
 t_list	*ft_recordfile(int fd)
 {
 	t_list *lst;
-	t_list *tmp;
 	char *buf;
 	int ret;
 	int i;
 
-	buf = (char*)malloc(22);
 	i = 0;
 	lst = NULL;
+	buf = (char*)malloc(22);
 	while ((ret = read(fd, buf, 21)))
 	{
 		buf[ret] = '\0';
 		list_addback(&lst, buf, 21, 'A' + i);
 		i++;
 	}
-	close(fd);
+	if (buf[20])
+		ft_errorbox();
 	free(buf);
-	if (i > 26)
-		return (NULL);
+	close(fd);
+	add_pieces_in_list(lst);
+	return (lst);
+}
+
+void	add_pieces_in_list(t_list *lst)
+{
+	t_list *tmp;
+
 	if (check_file(lst) == 1)
 	{
-	tmp = lst;
+		tmp = lst;
 		while (tmp)
 		{
 			insert_pieces(tmp);
 			tmp = tmp->next;
 		}
-		return (lst);
 	}
 	else
-		return (NULL);
+		return ;
 }
 
 int		check_piece(char *piece)
@@ -106,15 +112,21 @@ int		check_box(char *s)
 int		check_file(t_list *lst)
 {
 	t_list *tmp;
+	int i;
 
+	i = 0;
 	tmp = lst;
 	while (tmp)
 	{
 		if (check_box(tmp->content) == 1 && check_piece(tmp->content) == 1)
+		{
+			i++;
 			tmp = tmp->next;
+		}
 		else
 			return (ft_errorbox());
 	}
+	if (i > 26)
+		return (ft_errorbox());
 	return (1);
 }
-
