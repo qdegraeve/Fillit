@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 09:43:52 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/17 14:34:22 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/17 16:04:25 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void		del_lstcontent(char **tab, char *s, int size, char letter);
 char		*hash_vs_letter(char *s, char hash, char letter);
 char		**backtrack_map(t_list *lst);
 int			backtrack_map2(t_list *lst, char **map);
-char		**map_expand(t_list *lst, int n);
+char		**map_expand(t_list *lst, int *n);
 void		erase_piece(char **map, char **tab, int x, int y);
+int			ft_errorbox();
 
 #endif

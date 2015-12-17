@@ -6,15 +6,17 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:53:28 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/17 14:44:53 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/17 16:16:07 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_errorbox()
+int		ft_errorbox()
 {
 	ft_putendl("error");
+	exit(1);
+	return (0);
 }
 
 int main(int argc, char **argv)
@@ -33,7 +35,7 @@ int main(int argc, char **argv)
 	lst = ft_recordfile(fd);
 	len = ft_lstlen(lst);
 	n = ft_small_square(len);
-	map = map_expand(lst, n);
+	map = map_expand(lst, &n);
 	list_erase(&lst);
 	i = 0;
 	while (i < n)

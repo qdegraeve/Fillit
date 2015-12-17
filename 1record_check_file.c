@@ -6,7 +6,7 @@
 /*   By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 17:45:19 by qdegraev          #+#    #+#             */
-/*   Updated: 2015/12/17 15:04:19 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/17 16:05:36 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int		check_piece(char *piece)
 	}
 	if ((part == 6 || part == 8) && n == 4)
 		return (1);
-	return (0);
+	return (ft_errorbox());
 }
 
 int		check_box(char *s)
@@ -100,23 +100,20 @@ int		check_box(char *s)
 	if (linefeed == 5 && (s[i] == '\n' || s[i] == '\0'))
 		return (1);
 	else
-		return (0);
+		return (ft_errorbox());
 }
 
 int		check_file(t_list *lst)
 {
 	t_list *tmp;
-	int i;
 
 	tmp = lst;
-	i = 1;
 	while (tmp)
 	{
-			i++;
 		if (check_box(tmp->content) == 1 && check_piece(tmp->content) == 1)
 			tmp = tmp->next;
 		else
-			return (0);
+			return (ft_errorbox());
 	}
 	return (1);
 }

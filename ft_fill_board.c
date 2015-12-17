@@ -6,7 +6,7 @@
 /*   By: afillion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:09:32 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/17 14:34:33 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/17 15:35:31 by qdegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ void	ft_fill_board(char **map, char **tab, int x, int y)
 	return ;
 }
 
-char	**map_expand(t_list *lst, int n)
+char	**map_expand(t_list *lst, int *n)
 {
 	char **map;
 	
-	map = ft_taballoc(n);
+	map = ft_taballoc(*n);
 	if (backtrack_map2(lst, map) == 1)
 		return (map);
 	if (backtrack_map2(lst, map) == 0)
 	{
-		n++;
+		(*n)++;
 		return (map_expand(lst, n));
 	}
 	return (NULL);
