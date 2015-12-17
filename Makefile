@@ -6,7 +6,7 @@
 #    By: qdegraev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 08:41:32 by qdegraev          #+#    #+#              #
-#    Updated: 2015/12/14 15:30:33 by afillion         ###   ########.fr        #
+#    Updated: 2015/12/17 17:11:37 by afillion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC = \
 	ft_small_square.c \
 	ft_taballoc.c \
 	3list.c \
-	ft_fill_board.c
+	ft_fill_board.c \
+	ft_free.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -44,8 +45,10 @@ $(LIB):
 
 clean:
 	rm -f $(OBJ)
+	make clean -C $(LIBPATH)
 
 fclean: clean
 	rm -f $(NAME)
+	make fclean -C $(LIBPATH)
 
 re: fclean all
