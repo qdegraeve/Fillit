@@ -6,7 +6,7 @@
 /*   By: afillion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:09:32 by afillion          #+#    #+#             */
-/*   Updated: 2015/12/17 15:35:31 by qdegraev         ###   ########.fr       */
+/*   Updated: 2015/12/17 16:55:54 by afillion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_fill_board(char **map, char **tab, int x, int y)
 char	**map_expand(t_list *lst, int *n)
 {
 	char **map;
-	
+
 	map = ft_taballoc(*n);
 	if (backtrack_map2(lst, map) == 1)
 		return (map);
@@ -52,7 +52,7 @@ int		backtrack_map2(t_list *lst, char **map)
 {
 	int i;
 	int j;
-	
+
 	if (!lst)
 		return (1);
 	i = 0;
@@ -73,29 +73,7 @@ int		backtrack_map2(t_list *lst, char **map)
 	return (0);
 }
 
-void	erase_piece(char **map, char **tab, int x, int y)
-{
-	int		i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (tab[i])
-	{
-		while (tab[i][j])
-		{
-			if (ft_isalpha(tab[i][j]))
-				map[x + i][y + j] = '.';
-			j++;
-		}
-		i++;
-		j = 0;
-	}
-	return ;
-}
-
-
-int	ft_niketamerelapute(char **map, char **tab, int *i, int *j)
+int		ft_niketamerelapute(char **map, char **tab, int *i, int *j)
 {
 	while (map[*i])
 	{
